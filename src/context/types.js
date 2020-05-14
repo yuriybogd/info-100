@@ -1,0 +1,3 @@
+export const ADD_STATEMENT = "ADD_STATEMENT"
+export const SHOW_LOADER = "SHOW_LOADER"
+export const FETCH_STATEMENTS = "FETCH_STATEMENTS"

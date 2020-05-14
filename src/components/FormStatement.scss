@@ -1,0 +1,26 @@
+.FormStatement {
+  margin: 15vh auto;
+  max-width: 800px;
+  min-width: 500px;
+  width: 60vw;
+  height: 50vh;
+  border-radius: 10px 10px 10px 10px;
+  -webkit-box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
+ background: #ee9ca7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ffdde1, #ee9ca7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ffdde1, #ee9ca7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  .input-text {
+    color: rgb(255, 255, 255);
+    font-size: 1.25rem;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 50px;
+  }
+  .input-group {
+    margin: 0 auto;
+    width: 90%;
+  }
+}
