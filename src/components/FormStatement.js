@@ -10,15 +10,21 @@ export const FormStatement = () => {
 
   const onChangeHandle = (e) => {
     setValue(e.target.value)
-    console.log(e.target.value);
   }
 
   const submitHandle = (e) => {
-  e.preventDefault()
+    e.preventDefault()
     
+    // TODO:
+    // Настроить функции проверски значени
+    // Настроить анимацию, как будто вопрос проверяется
+    // Настроить функцию результата отправки
+
     if (value.trim()) {
       firebase.addStatement(value.trim())
     }
+
+    setValue('')
 
 }
 

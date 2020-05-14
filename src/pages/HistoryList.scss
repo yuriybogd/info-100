@@ -1,6 +1,6 @@
-.Search {
+.HistoryList {
   height: 100vh;
-  padding: 3em 2em;
+
   text-align: center;
   background: #232526; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -13,5 +13,4 @@
     #414345,
     #232526
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  overflow: auto;
 }
