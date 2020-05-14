@@ -1,9 +1,12 @@
 import React, { useState } from "react"
 import { InputGroup, Form, FormControl, Button } from "react-bootstrap"
 import "./FormStatement.scss"
+import { useContext } from "react"
+import { FirebaseContext } from './../context/firebase/firebaseContext';
 
 export const FormStatement = () => {
   const [value, setValue] = useState("")
+  const firebase = useContext(FirebaseContext)
 
   const onChangeHandle = (e) => {
     setValue(e.target.value)
@@ -12,11 +15,10 @@ export const FormStatement = () => {
 
   const submitHandle = (e) => {
   e.preventDefault()
-    console.log("this is your value", value);
-    // TODO: 
-    // Добавить отправку данных на сервер
-    // Проверить валидацию на мат, плохие слова, придумать пасхалки
     
+    if (value.trim()) {
+      firebase.addStatement(value.trim())
+    }
 
 }
 

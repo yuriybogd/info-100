@@ -8,12 +8,20 @@
   -webkit-box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
- background: #ee9ca7;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #ffdde1, #ee9ca7);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #ffdde1, #ee9ca7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #ffefba; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffffff,
+    #ffefba
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ffffff,
+    #ffefba
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   .input-text {
-    color: rgb(255, 255, 255);
+    color: #3f2b96;
     font-size: 1.25rem;
     box-sizing: border-box;
     text-align: center;
@@ -22,5 +30,19 @@ background: linear-gradient(to right, #ffdde1, #ee9ca7); /* W3C, IE 10+/ Edge, F
   .input-group {
     margin: 0 auto;
     width: 90%;
+    input {
+      border-radius: 10px;
+    }
+  }
+  .btn {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: #3f2b96;
+    outline-color: #3f2b96;
+
+    &:hover {
+      color: #ffefba;
+      background-color: #3f2b96;
+    }
   }
 }
