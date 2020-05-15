@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react"
 import { Jumbotron, Button } from "react-bootstrap"
 import "./Search.scss"
 import { FirebaseContext } from "./../context/firebase/firebaseContext"
-import { HistoryList } from './HistoryList';
+import { HistoryList } from "../components/HistoryList"
 
 export const Search = () => {
   const { showLoader, fetchStatements, loading, statements } = useContext(
@@ -10,11 +10,8 @@ export const Search = () => {
   )
 
   useEffect(() => {
-    fetchStatements()
+    fetchStatements().catch((e) => console.error("Problem with fetching", e))
   }, [])
-
-
-  
 
   return (
     <div className="Search">
