@@ -24,7 +24,8 @@ export const FormStatement = () => {
     // Настроить функцию результата отправки
 
     if (value.trim()) {
-      setPercent(Math.floor(Math.random() * Math.floor(100)))
+      // setPercent(Math.floor(Math.random() * Math.floor(100)))
+      setPercent(100)
       firebase.addStatement(value.trim())
       setBarState({isSubmitted: true})
       // TODO:
