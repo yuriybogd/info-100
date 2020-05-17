@@ -6,7 +6,7 @@ import { FETCH_STATEMENTS, ADD_STATEMENT } from "./../types"
 import { FirebaseContext } from "./firebaseContext"
 
 const url = "https://info-100.firebaseio.com"
-
+ 
 const dateTransform = () => {
   let date = new Date()
 
@@ -17,6 +17,10 @@ const dateTransform = () => {
     month: date.getMonth(),
     }
     
+    if (mins < 10) {
+        mins = "0" + mins
+    }
+
   switch (month) {
     case 0:
       month = "Января"
@@ -58,7 +62,7 @@ const dateTransform = () => {
       month = ""
   }
 
-  const result = " " + hours + ":" + mins + " от " + day + " " + month
+  const result = "в " + hours + ":" + mins + " от " + day + " " + month
 
   return result
 }

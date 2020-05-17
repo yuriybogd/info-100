@@ -3,13 +3,11 @@ import "./HistoryList.scss"
 import { Accordion, AccordionToggle, Card } from "react-bootstrap"
 
 export const HistoryList = ({ statements }) => {
-  const statementsReversed = statements.reverse()
 
-  console.log(statementsReversed)
 
   return (
     <Accordion defaultActiveKey="0">
-      {statementsReversed.map(({ date, id, question }, index) => (
+      {statements.reverse().map(({ date, id, question }, index) => (
         <Card key={id}>
           <Accordion.Toggle as={Card.Header} eventKey={index}>
             <span className="question">{question}</span>

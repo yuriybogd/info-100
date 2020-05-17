@@ -17,5 +17,6 @@ export const Search = () => {
     <div className="Search">
       <HistoryList statements={statements} />
     </div>
+
   )
 }
