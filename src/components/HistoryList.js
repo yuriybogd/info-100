@@ -1,23 +1,35 @@
 import React from "react"
 import "./HistoryList.scss"
 import { Accordion, AccordionToggle, Card } from "react-bootstrap"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faPercent, faQuestion
+} from "@fortawesome/free-solid-svg-icons"
 
 export const HistoryList = ({ statements }) => {
-
+  console.log(statements)
 
   return (
-    <Accordion defaultActiveKey="0">
-      {statements.reverse().map(({ date, id, question }, index) => (
-        <Card key={id}>
-          <Accordion.Toggle as={Card.Header} eventKey={index}>
-            <span className="question">{question}</span>
-            <span className="question-date">{date}</span>
-          </Accordion.Toggle>
-          <Accordion.Collapse eventKey={index}>
-            <Card.Body>"Здесь будет инфа о процентах"</Card.Body>
-          </Accordion.Collapse>
+    <div className="HistoryList">
+      {statements.reverse().map(({ date, id, question, percent }) => (
+        <Card border="light" key={id}>
+          <Card.Header>{date}</Card.Header>
+          <Card.Body>
+            <Card.Title>
+              <div className="percent-icon">
+                <FontAwesomeIcon icon={faPercent} />
+              </div>
+              <div className="percent-text">{percent}</div>
+            </Card.Title>
+            <Card.Text>
+              <div className="question-icon">
+                <FontAwesomeIcon icon={faQuestion} />
+              </div>
+              <div className="question-text">{question}</div>
+            </Card.Text>
+          </Card.Body>
         </Card>
       ))}
-    </Accordion>
+    </div>
   )
 }

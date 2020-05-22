@@ -92,9 +92,10 @@ export const FirebaseState = ({ children }) => {
     dispatch({ type: FETCH_STATEMENTS, payload })
   }
 
-  const addStatement = async (question) => {
+  const addStatement = async (question, percent) => {
     const statement = {
       question,
+      percent,
       date: dateTransform(),
     }
 
