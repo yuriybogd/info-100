@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react"
 import "./Search.scss"
 import { FirebaseContext } from "./../context/firebase/firebaseContext"
-import { HistoryList } from "../components/HistoryList"
+import { HistoryCards } from "../components/HistoryCards"
 import Loader from "react-loader-spinner"
 
 export const Search = () => {
@@ -16,7 +16,7 @@ export const Search = () => {
 
   return (
     <div className="Search">
-      <HistoryList statements={statements} />
+      <HistoryCards statements={statements} />
       {loading ? (
         <Loader
           type="Puff"

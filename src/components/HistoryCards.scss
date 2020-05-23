@@ -1,0 +1,362 @@
+// Colors
+$color-primary-light: #ca3782;
+$color-primary-dark: #1e0b36;
+$color-black: #000;
+$color-gray-dark: #aaa;
+$color-gray-light: #eee;
+$color-white: #fff;
+
+// Mixins
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin bgGradient {
+  background: #4b6cb7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #182848,
+    #4b6cb7
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #182848,
+    #4b6cb7
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+@mixin border-radius {
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px solid #000000;
+}
+
+@mixin box-shadow {
+  -webkit-box-shadow: 10px 10px 21px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 21px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 21px -1px rgba(0, 0, 0, 0.75);
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == mobile-portrait {
+    @media (max-width: 320px) {
+      @content;
+    }
+  }
+  @if $breakpoint == mobile-landscape {
+    @media (max-width: 480px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet-portrait {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet-landscape {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+  @if $breakpoint == desktop {
+    @media (min-width: 990px) {
+      @content;
+    }
+  }
+}
+
+/* Reset */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.HistoryCards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1em 1em;
+  padding: 4rem;
+  height: 100%;
+  position: relative;
+  @include respond(mobile-portrait) {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+    padding: 0;
+  }
+  @include respond(mobile-landscape) {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+    padding: 0;
+  }
+}
+
+.card {
+  flex: initial;
+  position: relative;
+  height: 40rem;
+  width: 42rem;
+  -moz-perspective: 200rem;
+  perspective: 200rem;
+  margin: 2rem;
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+
+  //Responsive
+  @include respond(mobile-portrait) {
+    display: flex;
+    justify-content: center;
+    width: 16rem;
+    margin: 1rem auto;
+  }
+  @include respond(mobile-landscape) {
+    @include border-radius();
+    display: flex;
+    justify-content: center;
+    width: 20rem;
+    height: 25rem;
+  }
+
+  &__side {
+    height: 40rem;
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    -webkit-backface-visibility: hidden; /* We don't want to see the back part of the element. */
+    backface-visibility: hidden; /* We don't want to see the back part of the element. */
+    border-radius: 3px;
+    overflow: hidden; /* The image is overflowing the parent. */
+    @include box-shadow();
+    @include border-radius();
+
+    //Responsive
+    @include respond(mobile-portrait) {
+      @include border-radius();
+      height: 18rem;
+    }
+    @include respond(mobile-landscape) {
+      @include border-radius();
+      height: 25rem;
+    }
+    @include respond(tablet-portrait) {
+      @include border-radius();
+    }
+
+    &--front {
+      @include bgGradient();
+      @include respond(mobile-portrait) {
+        width: 12rem;
+        height: 18rem;
+      }
+      @include respond(mobile-landscape) {
+        width: 20rem;
+        height: 25rem;
+      }
+    }
+
+    &--back {
+      border: none;
+      background-color: $color-white;
+      transform: rotateY(180deg);
+
+      // Responsive
+      @include respond(mobile-landscape) {
+        width: 20rem;
+        height: 25rem;
+      }
+    }
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  // Front side of the card
+  &__theme {
+    @include absCenter;
+  }
+
+  &__theme-box {
+    display: inherit;
+    align-items: center;
+    color: $color-white;
+  }
+
+  &__title {
+    font-family: "VT323", monospace;
+    text-transform: uppercase;
+    font-size: 10rem;
+    font-weight: 100;
+    border: 2px solid white;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    @include respond(mobile-landscape) {
+      width: 15rem;
+      height: 15rem;
+    }
+  }
+
+  // Back side of the card
+  &__cover {
+    @include bgGradient();
+    position: relative;
+    background-size: cover;
+    height: 14rem;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    //Responsive
+    @include respond(mobile-portrait) {
+      height: 6rem;
+    }
+    @include respond(mobile-landscape) {
+      height: 6rem;
+    }
+    @include respond(tablet-portrait) {
+      height: 9rem;
+    }
+  }
+
+  &__heading {
+    @include absCenter;
+    text-align: center;
+    color: $color-white;
+    width: 75%;
+  }
+
+  &__heading-span {
+    font-family: "VT323", monospace;
+    font-size: 3rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    padding: 1rem 1.5rem;
+    color: $color-white;
+
+    //Responsive
+    @include respond(mobile-portrait) {
+      font-size: 2rem !important;
+    }
+    @include respond(mobile-landscape) {
+      font-size: 1.75rem;
+    }
+    @include respond(tablet-portrait) {
+      font-size: 2.5rem;
+      text-align: center;
+    }
+  }
+
+  &__details {
+    font-family: "Inconsolata", monospace;
+    padding: 4rem 2rem;
+    .question {
+      font-size: 3rem;
+      font-weight: 200;
+
+      //Responsive
+      @include respond(mobile-portrait) {
+        font-size: 1.5rem;
+        padding: 0;
+        height: 50px;
+      }
+      @include respond(mobile-landscape) {
+        font-size: 1.75rem;
+        padding: 0;
+      }
+      @include respond(tablet-portrait) {
+        font-size: 2rem;
+        padding: 0;
+      }
+    }
+    .question-text {
+      font-size: 2rem;
+      font-weight: 200;
+
+      //Responsive
+      @include respond(mobile-portrait) {
+        font-size: 1rem;
+        padding: 0;
+      }
+      @include respond(mobile-landscape) {
+        font-size: 1.25rem;
+        padding: 0;
+      }
+      @include respond(tablet-portrait) {
+        font-size: 1.5rem;
+        padding: 0;
+      }
+    }
+  }
+
+  //Responsive
+  @media only screen and (max-width: 320px), only screen and (hover: none) {
+    @include border-radius();
+    @include box-shadow();
+    height: auto;
+    background-color: $color-white;
+
+    &__side {
+      width: 100%;
+      height: auto;
+      position: relative;
+      box-shadow: none;
+
+      &--front {
+        height: auto;
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+      }
+
+      &--back {
+        transform: rotateY(0);
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+
+    &__details {
+      padding: 2rem 1rem;
+    }
+
+    // Front side responsive styling
+    &__theme {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      height: auto;
+      padding: 1rem 1rem 0rem 1rem;
+    }
+
+    &__theme-box {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    &__title {
+      display: flex;
+      font-size: 3rem;
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+}
