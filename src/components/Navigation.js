@@ -2,24 +2,34 @@ import React from "react"
 import { NavLink } from "react-router-dom"
 import "./Navigation.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faHome, faHistory, faUsersCog } from "@fortawesome/free-solid-svg-icons"
+import {
+  faHome,
+  faHistory,
+  faUsersCog,
+} from "@fortawesome/free-solid-svg-icons"
 
 export const Navigation = () => {
   return (
-    <nav className="bm-item-list">
+    <nav className="Navigation bm-item-list">
       <NavLink id="home" className="bm-item" exact to="/">
-        <FontAwesomeIcon icon={faHome} />
-        Домашняя
+        <div className="font-icon">
+          <FontAwesomeIcon icon={faHome} />
+        </div>
+        <span className="link-text">Домой</span>
       </NavLink>
 
       <NavLink id="search" className="bm-item" to="/search">
-        <FontAwesomeIcon icon={faHistory} />
-        История запросов
+        <div className="font-icon">
+          <FontAwesomeIcon icon={faHistory} />
+        </div>
+        <span className="link-text">История запросов</span>
       </NavLink>
 
       <NavLink id="admin" className="bm-item" to="/admin">
-        <FontAwesomeIcon icon={faUsersCog} />
-        Администратор
+        <div className="font-icon">
+          <FontAwesomeIcon icon={faUsersCog} />
+        </div>
+        <span className="link-text">Администратор</span>
       </NavLink>
     </nav>
   )

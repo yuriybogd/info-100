@@ -87,6 +87,8 @@ $color-white: #fff;
   padding: 4rem;
   height: 100%;
   position: relative;
+
+  //Responsive
   @include respond(mobile-portrait) {
     display: flex;
     justify-content: center;
@@ -96,7 +98,25 @@ $color-white: #fff;
   @include respond(mobile-landscape) {
     display: flex;
     justify-content: center;
-    margin-top: 5rem;
+    margin-top: 4rem;
+    padding: 0;
+  }
+   @include respond(tablet-portrait) {
+    display: flex;
+    justify-content: center;
+    margin: 5rem 2rem;
+    padding: 0;
+  }
+  @include respond(tablet-landscape) {
+    display: flex;
+    justify-content: center;
+    margin: 5rem 5rem;
+    padding: 0;
+  }
+   @include respond(desktop) {
+    display: flex;
+    justify-content: center;
+    margin: 5rem 2rem;
     padding: 0;
   }
 }
@@ -126,6 +146,29 @@ $color-white: #fff;
     width: 20rem;
     height: 25rem;
   }
+  @include respond(tablet-portrait) {
+    @include border-radius();
+    display: flex;
+    justify-content: center;
+    margin: 2rem 2rem;
+    width: 28rem;
+    height: 28rem;
+  }
+  @include respond(tablet-landscape) {
+    @include border-radius();
+    display: flex;
+    justify-content: center;
+    width: 35rem;
+    height: 40rem;
+  }
+  @include respond(desktop) {
+    @include border-radius();
+    display: flex;
+    justify-content: center;
+    margin: 2rem 2rem;
+    width: 38rem;
+    height: 29rem;
+  }
 
   &__side {
     height: 40rem;
@@ -148,34 +191,31 @@ $color-white: #fff;
     }
     @include respond(mobile-landscape) {
       @include border-radius();
-      height: 25rem;
+      height: 27rem;
     }
     @include respond(tablet-portrait) {
       @include border-radius();
+      height: 27rem;
+    }
+    @include respond(tablet-landscape) {
+      padding: 0;
+      margin: 0;
+      width: 34rem;
+      height: 35rem;
+    }
+    @include respond(desktop) {
+      width: 40rem;
+      height: 30rem;
     }
 
     &--front {
       @include bgGradient();
-      @include respond(mobile-portrait) {
-        width: 12rem;
-        height: 18rem;
-      }
-      @include respond(mobile-landscape) {
-        width: 20rem;
-        height: 25rem;
-      }
     }
 
     &--back {
       border: none;
       background-color: $color-white;
       transform: rotateY(180deg);
-
-      // Responsive
-      @include respond(mobile-landscape) {
-        width: 20rem;
-        height: 25rem;
-      }
     }
   }
 
@@ -198,10 +238,8 @@ $color-white: #fff;
   }
 
   &__title {
-    font-family: "VT323", monospace;
     text-transform: uppercase;
     font-size: 10rem;
-    font-weight: 100;
     border: 2px solid white;
     width: 2em;
     height: 2em;
@@ -234,6 +272,9 @@ $color-white: #fff;
     @include respond(tablet-portrait) {
       height: 9rem;
     }
+    @include respond(desktop) {
+      height: 9rem;
+    }
   }
 
   &__heading {
@@ -244,9 +285,7 @@ $color-white: #fff;
   }
 
   &__heading-span {
-    font-family: "VT323", monospace;
     font-size: 3rem;
-    font-weight: 300;
     text-transform: uppercase;
     padding: 1rem 1.5rem;
     color: $color-white;
@@ -262,14 +301,16 @@ $color-white: #fff;
       font-size: 2.5rem;
       text-align: center;
     }
+    @include respond(desktop) {
+      font-size: 2.5rem;
+      text-align: center;
+    }
   }
 
   &__details {
-    font-family: "Inconsolata", monospace;
     padding: 4rem 2rem;
     .question {
       font-size: 3rem;
-      font-weight: 200;
 
       //Responsive
       @include respond(mobile-portrait) {
@@ -285,10 +326,13 @@ $color-white: #fff;
         font-size: 2rem;
         padding: 0;
       }
+      @include respond(desktop) {
+        font-size: 3rem;
+        padding: 0;
+      }
     }
     .question-text {
       font-size: 2rem;
-      font-weight: 200;
 
       //Responsive
       @include respond(mobile-portrait) {

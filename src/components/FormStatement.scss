@@ -1,15 +1,12 @@
-.FormStatement {
-  margin: 15vh auto;
-  max-width: 800px;
-  min-width: 500px;
-  width: 60vw;
-  min-height: 500px;
-  overflow-y: hidden;
-  border-radius: 10px 10px 10px 10px;
+@mixin bg-radius-shadow {
+   border-radius: 10px 10px 10px 10px;
   -webkit-box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
-  background: #ffefba; /* fallback for old browsers */
+}
+
+@mixin bg-gradient {
+ background: #ffefba; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
     #ffffff,
@@ -20,6 +17,17 @@
     #ffffff,
     #ffefba
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.FormStatement {
+  margin: 15vh auto;
+  max-width: 800px;
+  min-width: 500px;
+  width: 60vw;
+  min-height: 500px;
+  overflow-y: hidden;
+ @include bg-radius-shadow();
+ @include bg-gradient();
 
   .input-text {
     color: #3f2b96;
