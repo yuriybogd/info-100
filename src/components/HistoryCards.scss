@@ -1,4 +1,6 @@
-// Colors
+@import "../fonts/fonts";
+
+// Color
 $color-primary-light: #ca3782;
 $color-primary-dark: #1e0b36;
 $color-black: #000;
@@ -6,7 +8,7 @@ $color-gray-dark: #aaa;
 $color-gray-light: #eee;
 $color-white: #fff;
 
-// Mixins
+// Mixin
 @mixin absCenter {
   position: absolute;
   top: 50%;
@@ -88,7 +90,7 @@ $color-white: #fff;
   height: 100%;
   position: relative;
 
-  //Responsive
+  // Responsive
   @include respond(mobile-portrait) {
     display: flex;
     justify-content: center;
@@ -132,7 +134,7 @@ $color-white: #fff;
   background-color: rgba(255, 255, 255, 0);
   border: none;
 
-  //Responsive
+  // Responsive
   @include respond(mobile-portrait) {
     display: flex;
     justify-content: center;
@@ -171,6 +173,8 @@ $color-white: #fff;
   }
 
   &__side {
+    @include box-shadow();
+    @include border-radius();
     height: 40rem;
     transition: all 0.8s ease;
     position: absolute;
@@ -181,10 +185,9 @@ $color-white: #fff;
     backface-visibility: hidden; /* We don't want to see the back part of the element. */
     border-radius: 3px;
     overflow: hidden; /* The image is overflowing the parent. */
-    @include box-shadow();
-    @include border-radius();
+    
 
-    //Responsive
+    // Responsive
     @include respond(mobile-portrait) {
       @include border-radius();
       height: 18rem;
@@ -238,6 +241,7 @@ $color-white: #fff;
   }
 
   &__title {
+    @include CormorantInfant-SemiBold;
     text-transform: uppercase;
     font-size: 10rem;
     border: 2px solid white;
@@ -247,6 +251,8 @@ $color-white: #fff;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+
+    // Responsive
     @include respond(mobile-landscape) {
       width: 15rem;
       height: 15rem;
@@ -262,7 +268,7 @@ $color-white: #fff;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 
-    //Responsive
+    // Responsive
     @include respond(mobile-portrait) {
       height: 6rem;
     }
@@ -285,17 +291,18 @@ $color-white: #fff;
   }
 
   &__heading-span {
+    @include CormorantInfant-SemiBold;
     font-size: 3rem;
     text-transform: uppercase;
     padding: 1rem 1.5rem;
     color: $color-white;
 
-    //Responsive
+    // Responsive
     @include respond(mobile-portrait) {
       font-size: 2rem !important;
     }
     @include respond(mobile-landscape) {
-      font-size: 1.75rem;
+      font-size: 1.25rem;
     }
     @include respond(tablet-portrait) {
       font-size: 2.5rem;
@@ -310,9 +317,10 @@ $color-white: #fff;
   &__details {
     padding: 4rem 2rem;
     .question {
+      @include CormorantInfant-Regular;
       font-size: 3rem;
 
-      //Responsive
+      // Responsive
       @include respond(mobile-portrait) {
         font-size: 1.5rem;
         padding: 0;
@@ -332,9 +340,10 @@ $color-white: #fff;
       }
     }
     .question-text {
+      @include CormorantInfant-SemiBold;
       font-size: 2rem;
 
-      //Responsive
+      // Responsive
       @include respond(mobile-portrait) {
         font-size: 1rem;
         padding: 0;
@@ -350,7 +359,7 @@ $color-white: #fff;
     }
   }
 
-  //Responsive
+  // Responsive
   @media only screen and (max-width: 320px), only screen and (hover: none) {
     @include border-radius();
     @include box-shadow();

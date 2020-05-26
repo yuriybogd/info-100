@@ -1,7 +1,9 @@
 .Administrator {
   height: 100vh;
-  padding: 20em 10em;
-  text-align: center;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: #232526; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,

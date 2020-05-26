@@ -4,7 +4,7 @@ import React from 'react'
 
 export const ResultMsg = ({msg}) => {
     return (
-        <div>
+        <div className="result">
             {msg}
         </div>
     )

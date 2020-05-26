@@ -10,7 +10,7 @@ export const FormStatement = () => {
   const [percent, setPercent] = useState(0)
   const [value, setValue] = useState("")
   const [barState, setBarState] = useState({ isSubmitted: false })
-  const [msgState, setMsgState] = useState({isShown: false})
+  const [msgState, setMsgState] = useState({ isShown: false })
   const firebase = useContext(FirebaseContext)
 
   const onChangeHandle = (e) => {
@@ -29,25 +29,23 @@ export const FormStatement = () => {
       let curPercent = Math.floor(Math.random() * Math.floor(100))
       setPercent(curPercent)
       console.log("percent = ", curPercent)
-      
+
       firebase.addStatement(value.trim(), curPercent)
       setBarState({ isSubmitted: true })
       setTimeout(() => {
         setMsgState({ isShown: true })
-      }, 4000);
+      }, 4000)
     }
 
-    setMsgState({isShown: false})
+    setMsgState({ isShown: false })
     setValue("")
   }
-
-
 
   return (
     <div className="container-md">
       <Form className="FormStatement" onSubmit={submitHandle}>
         <h5 className="input-text">Введите инфу для проверки</h5>
-        <InputGroup>
+
           <FormControl
             id="question-input"
             placeholder="Введите инфу..."
@@ -56,14 +54,15 @@ export const FormStatement = () => {
             value={value}
             onChange={onChangeHandle}
           />
-          <InputGroup.Append>
-            <Button type="submit" variant="outline-info">
-              Проверить
-            </Button>
-          </InputGroup.Append>
-        </InputGroup>
+
+          <Button type="submit">
+            <div></div>
+          </Button>
+
         {barState.isSubmitted ? <ProgressBar percent={percent} /> : null}
-        {msgState.isShown ? <ResultMsg msg={"Здесь будет текста сообщения"} /> : null}
+        {msgState.isShown ? (
+          <ResultMsg msg={"Вот это результат!"} />
+        ) : null}
       </Form>
     </div>
   )

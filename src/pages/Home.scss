@@ -1,7 +1,5 @@
-.Home {
-  height: 100vh;
-  padding: 3em 2em;
-  text-align: center;
+// Mixin
+@mixin bg-gradient {
   background: #232526; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
@@ -13,5 +11,18 @@
     #414345,
     #232526
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.Home {
+  height: 100vh;
+  overflow-y: hidden;
+  text-align: center;
   overflow: auto;
+  background-image: url("../images/bg-game1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  backface-visibility: hidden;
+  background-color: rgba(0,0,0, 2);
 }

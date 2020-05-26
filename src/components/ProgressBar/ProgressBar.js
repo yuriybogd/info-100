@@ -26,8 +26,8 @@ export const ProgressBar = ({percent}) => {
               styles={buildStyles({
                 rotation: 0,
                 strokeLinecap: "butt",
-                pathColor: `#493240`,
-                textColor: "#3f2b96",
+                pathColor: `#D6A401`,
+                textColor: "#D6A401",
                 trailColor: "#d6d6d6",
                 backgroundColor: "#3e98c7",
               })}

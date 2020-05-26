@@ -7,6 +7,8 @@ import { Search } from "./pages/Search"
 import { scaleRotate as Menu } from "react-burger-menu"
 import { Administrator } from './pages/Administrator';
 import { FirebaseState } from "./context/firebase/FirebaseState"
+import { SingInForm } from './components/SingInForm';
+import { SingUpForm } from './components/SingUpForm';
 
 function App() {
   return (

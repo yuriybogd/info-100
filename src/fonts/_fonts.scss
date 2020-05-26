@@ -1,68 +1,39 @@
-@import "./BalsamiqSans/BalsamiqSans.scss";
-@import "./Neucha/Neucha.scss";
-@import "./OpenSansCondensed/OpenSansCondensed.scss";
-@import "./OpenSansCondensed/OpenSansCondensedLight.scss";
-@import "./RobotoCondensed/RobotoCondensed.scss";
-@import "./RobotoCondensed/RobotoCondensedLight.scss";
+@import "./Roboto/Roboto.scss";
+@import "./Cormorant-Infant/CormorantInfant.scss";
 
-//mixin
-@mixin Balsamic-700 {
-   font-family:'Balsamiq Sans'; 
-   font-weight: 700;
-}
-
-@mixin Balsamic-400 {
-   font-family:'Balsamiq Sans'; 
-   font-weight: 400;
-}
-
-@mixin Neucha-400 {
-    font-family:'Neucha';
-    font-weight: 400;
-}
-
-@mixin OpenSansCondensed-700 {
-    font-family:'Open Sans Condensed';
-    font-weight: 700;
-}
-
-@mixin OpenSansCondensed-300 {
-    font-family:'Open Sans Condensed Light';
-    font-weight: 300;
-}
-
-@mixin RobotoCondensed-700 {
-    font-family:'Roboto Condensed';
-    font-weight: 700;
-    font-style: normal;
-}
-
-@mixin RobotoCondensed-700-italic {
-    font-family:'Roboto Condensed';
-    font-weight: 700;
-    font-style: italic;
-}
-
-@mixin RobotoCondensed-400-italic {
-    font-family:'Roboto Condensed';
-    font-weight: 400;
-    font-style: italic;
-}
-
-@mixin RobotoCondensed-400 {
-    font-family:'Roboto Condensed';
-    font-weight: 400;
-    font-style: normal;
-}
-
-@mixin RobotoCondensed-300 {
-  font-family: "Roboto Condensed Light";
+// Mixin
+  @mixin Roboto-Light {
+  font-family: "Roboto";
   font-weight: 300;
   font-style: normal;
 }
 
-@mixin RobotoCondensed-300-italic {
-  font-family: "Roboto Condensed Light";
-  font-weight: 300;
+@mixin Roboto-Italic {
+  font-family: "Roboto";
+  font-weight: normal;
   font-style: italic;
+}
+
+@mixin Roboto-Medium {
+  font-family: "Roboto";
+  font-weight: 500;
+  font-style: normal;
+}
+
+@mixin Roboto-Regular {
+  font-family: "Roboto";
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin CormorantInfant-Regular {
+  font-family: "Cormorant Infant";
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin CormorantInfant-SemiBold {
+  font-family: "Cormorant Infant";
+  font-weight: 600;
+  font-style: normal;
 }

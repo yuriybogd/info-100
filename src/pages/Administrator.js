@@ -1,20 +1,14 @@
-import React from "react"
-import { Jumbotron, Button } from "react-bootstrap"
+import React, { useState } from "react"
 import "./Administrator.scss"
+import { SingInForm } from "./../components/SingInForm"
+import { SingUpForm } from "./../components/SingUpForm"
 
 export const Administrator = () => {
+  const [toggle, setToggle] = useState({ toggleForm: true })
+
   return (
     <div className="Administrator">
-      <Jumbotron>
-        <h1>Administrator page</h1>
-        <p>
-          This is a simple hero unit, a simple jumbotron-style component for
-          calling extra attention to featured content or information.
-        </p>
-        <p>
-          <Button variant="primary">Learn more</Button>
-        </p>
-      </Jumbotron>
+      {toggle ? <SingInForm /> : <SingUpForm />}
     </div>
   )
 }

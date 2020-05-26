@@ -1,0 +1,61 @@
+@import "../fonts/fonts.scss";
+
+// Variables
+
+// Mixin
+@mixin bg-gradient {
+  background: #d3cce3; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #e9e4f0,
+    #d3cce3
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #e9e4f0,
+    #d3cce3
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+@mixin bg-radius-shadow {
+  border-radius: 10px 10px 10px 10px;
+  -webkit-box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
+}
+
+.SingUpForm {
+  @include bg-gradient();
+  @include bg-radius-shadow();
+  display: flex;
+  flex-direction: column;
+  min-width: 10rem;
+  width: 30rem;
+  padding: 1rem;
+
+  .form-label {
+    // @include RobotoCondensed-400-italic();
+    font-size: 1.25rem;
+    margin-left: 0.5rem;
+  }
+
+  .form-control {
+    // @include RobotoCondensed-400();
+    font-size: 1.25rem;
+    border-radius: 10px;
+  }
+
+  .invalid-feedback {
+    // @include RobotoCondensed-300-italic();
+    font-size: 1rem;
+    margin-left: 2rem;
+  }
+
+  .btn {
+    // @include Balsamic-400();
+    letter-spacing: 0.1rem;
+    padding: 0.5rem;
+    width: 12rem;
+    border-radius: 5px;
+  }
+}
