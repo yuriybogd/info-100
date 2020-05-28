@@ -1,11 +1,20 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import "./HistoryCards.scss"
 
 export const HistoryCards = ({ statements }) => {
-  console.log(statements)
+  const [cardsClass, setCardsClass] = useState({
+    clsName: "HistoryCards",
+  })
+
+useEffect(() => {
+  setCardsClass({
+    clsName: "HistoryCards bounce-in-left",
+  })
+ 
+}, [])
 
   return (
-    <div class="HistoryCards">
+    <div class={cardsClass.clsName}>
       {statements.reverse().map(({ date, id, question, percent }) => (
         <div class="card" key={id}>
           <div class="card__side card__side--back">
@@ -29,6 +38,6 @@ export const HistoryCards = ({ statements }) => {
           </div>
         </div>
       ))}
-    </div>
+      </div>
   )
 }

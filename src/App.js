@@ -7,8 +7,7 @@ import { Search } from "./pages/Search"
 import { scaleRotate as Menu } from "react-burger-menu"
 import { Administrator } from './pages/Administrator';
 import { FirebaseState } from "./context/firebase/FirebaseState"
-import { SingInForm } from './components/SingInForm';
-import { SingUpForm } from './components/SingUpForm';
+import { Auth } from './pages/Auth';
 
 function App() {
   return (
@@ -24,6 +23,7 @@ function App() {
                 <Route path="/" exact component={Home} />
                 <Route path="/search" component={Search} />
                 <Route path="/admin" component={Administrator} />
+                <Route path="/auth" component={Auth} />
               </Switch>
             </main>
           </div>

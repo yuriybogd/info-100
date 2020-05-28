@@ -4,10 +4,9 @@ import * as yup from "yup"
 import { Form, Button } from "react-bootstrap"
 import "./SingUpForm.scss"
 import Axios from "axios"
-import { NavLink } from "react-router-dom"
 
-const singUpUrl =
-  "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key="
+// const singUpUrl =
+//   "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key="
 
 const singInUrl =
   "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key="
@@ -126,11 +125,6 @@ export const SingUpForm = () => {
               {errors.password}
             </Form.Control.Feedback>
           </Form.Group>
-
-          <Form.Text>
-            Уже зарагестрированы?
-            <NavLink to="/admin/singUp">Войти</NavLink>
-          </Form.Text>
 
           <Button type="submit">Зарегестрироваться</Button>
         </Form>

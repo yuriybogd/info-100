@@ -1,0 +1,41 @@
+@import "../fonts/_fonts.scss";
+@import "../stylesheets/svgBackgrounds.scss";
+@import "../stylesheets/animations.scss";
+
+// Mixin
+@mixin bg-radius-shadow {
+  border-radius: 10px 10px 10px 10px;
+  -webkit-box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 15px 1px rgba(0, 0, 0, 0.75);
+}
+
+.Auth {
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow-y: hidden;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include bounce-in-left;
+  @include bounce-in-right;
+
+  .auth-section {
+    @include SVGWaveyFingerPrint;
+    @include bg-radius-shadow;
+    background-attachment: fixed;
+    margin-bottom: 3rem;
+    border: 3px solid #000;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    .toggle-btn {
+      width: 10rem;
+    }
+  }
+}

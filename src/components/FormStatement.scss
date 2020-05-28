@@ -1,4 +1,6 @@
 @import "../fonts/fonts.scss";
+@import "../stylesheets/svgBackgrounds.scss";
+@import "../stylesheets/animations.scss";
 
 // Mixin
 @mixin bg-radius-shadow {
@@ -7,21 +9,11 @@
   -moz-box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
 }
-@mixin bg-gradient {
-  background: #ffefba; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #ffffff,
-    #ffefba
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #ffffff,
-    #ffefba
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
 
 .FormStatement {
+  @include bg-radius-shadow;
+  @include SVGRosePetals;
+  @include bounce-in-left;
   display: flex;
   flex-direction: column;
   margin: 20vh auto;
@@ -32,13 +24,12 @@
   width: 60vw;
   min-height: 500px;
   overflow-y: hidden;
-  @include bg-radius-shadow();
-  @include bg-gradient();
+  
 
   .input-text {
     @include Roboto-Medium;
     font-size: 1.4rem;
-    color: #3f2b96;
+    color: #24221c;
     box-sizing: border-box;
     text-align: center;
     line-height: 50px;

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { InputGroup, Form, FormControl, Button } from "react-bootstrap"
+import { Form, FormControl, Button } from "react-bootstrap"
 import "./FormStatement.scss"
 import { useContext } from "react"
 import { FirebaseContext } from "./../context/firebase/firebaseContext"
@@ -43,7 +43,7 @@ export const FormStatement = () => {
 
   return (
     <div className="container-md">
-      <Form className="FormStatement" onSubmit={submitHandle}>
+      <Form className="FormStatement bounce-in-left" onSubmit={submitHandle}>
         <h5 className="input-text">Введите инфу для проверки</h5>
 
           <FormControl

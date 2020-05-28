@@ -6,6 +6,7 @@ import {
   faHome,
   faHistory,
   faUsersCog,
+  faUserPlus
 } from "@fortawesome/free-solid-svg-icons"
 
 export const Navigation = () => {
@@ -30,6 +31,12 @@ export const Navigation = () => {
           <FontAwesomeIcon icon={faUsersCog} />
         </div>
         <span className="link-text">Администратор</span>
+      </NavLink>
+      <NavLink id="auth" className="bm-item" to="/auth">
+        <div className="font-icon">
+          <FontAwesomeIcon icon={faUserPlus} />
+        </div>
+        <span className="link-text">Авторизация</span>
       </NavLink>
     </nav>
   )

@@ -1,14 +1,13 @@
 import React from "react"
-import { Formik, setNestedObjectValues } from "formik"
+import { Formik } from "formik"
 import * as yup from "yup"
 import { Form, Button } from "react-bootstrap"
 import "./SingInForm.scss"
 import Axios from "axios"
-import { NavLink } from "react-router-dom"
 
 // from Firebase
-const singUpUrl =
-  "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key="
+// const singUpUrl =
+//   "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key="
 const singInUrl =
   "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key="
 const APIKey = "AIzaSyBFk9wJ3MK9GJrHetTKNyRvJ_e1fYnV0hs"
@@ -91,11 +90,6 @@ export const SingInForm = () => {
               {errors.password}
             </Form.Control.Feedback>
           </Form.Group>
-
-          <Form.Text>
-            Еще не регестрировались?
-            <NavLink to="/admin/singUp">Зарегестрироваться</NavLink>
-          </Form.Text>
 
           <Button type="submit">Войти</Button>
         </Form>
