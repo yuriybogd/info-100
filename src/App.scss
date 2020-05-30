@@ -49,6 +49,8 @@ Note: Beware of modifying this element as it can break the animations - you shou
   -webkit-box-shadow: 10px 0px 14px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 0px 14px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.75);
+  border-radius: 25px;
+
 }
 
 
@@ -73,14 +75,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
   background: rgba(0, 0, 0, 0.3);
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-#page-wrap ::-webkit-scrollbar {
-  display: none;
-}
 
-// /* Hide scrollbar for IE and Edge */
-#page-wrap {
-  -ms-overflow-style: none;
-}
 
 

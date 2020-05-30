@@ -1,9 +1,11 @@
 @import "../fonts/fonts.scss";
+@import "../fonts/fontawesome-free-5.13.0-web/scss/solid.scss";
+@import "../stylesheets/gradientBackgrounds.scss";
 
 // Variables
-$label-color: #7B72D8;
+$label-color: #7b72d8;
 
-// Mixin
+// Mixins
 @mixin bg-radius-shadow {
   border-radius: 10px 10px 10px 10px;
   -webkit-box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
@@ -11,12 +13,53 @@ $label-color: #7B72D8;
   box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
 }
 
+@mixin btnSingIngStyle {
+  @include ohHappinessGradient;
+  color: #1d1d1d;
+  cursor: pointer;
+  font-size: 1.5em;
+  padding: 1.5rem;
+  border: 0;
+  transition: all 0.5s;
+  border-radius: 10px;
+  width: auto;
+  position: relative;
+  min-width: 200px;
+
+  &::after {
+    content: fa-content($fa-var-sign-in-alt);
+    font-family: "Font Awesome 5 Free";
+    font-weight: 800;
+    position: absolute;
+    left: 80%;
+    top: 54%;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover {
+    @include ohHappinessGradient;
+    opacity: .8;
+    transition: all 0.5s;
+    border-radius: 10px;
+    box-shadow: 0px 6px 15px #0000ff61;
+    padding: 1.5rem 3rem 1.5rem 1.5rem;
+    color: #ffffff;
+
+    &::after {
+      opacity: 1;
+      transition: all 0.5s;
+      color: #ffffff;
+    }
+  }
+}
+
 .SingInForm {
   display: flex;
   flex-direction: column;
   min-width: 10rem;
-  width: 30rem;
-  padding: 1rem;
 
   .form-label {
     @include Roboto-Italic;
@@ -26,7 +69,8 @@ $label-color: #7B72D8;
   }
 
   .form-control {
-    @include Roboto-Light font-size: 1.25rem;
+    @include Roboto-Light;
+    font-size: 1.25rem;
     border-radius: 10px;
   }
 
@@ -36,11 +80,10 @@ $label-color: #7B72D8;
     margin-left: 2rem;
   }
 
-  .btn {
+  .btn-singIn {
     @include Roboto-Medium;
-    letter-spacing: 0.1rem;
-    padding: 0.5rem;
-    width: 12rem;
-    border-radius: 5px;
+    @include btnSingIngStyle;
+    width: 100%;
+    height: 5rem;
   }
 }

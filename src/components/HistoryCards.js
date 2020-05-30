@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react"
 import "./HistoryCards.scss"
 
 export const HistoryCards = ({ statements }) => {
+const reverseStatement = statements.reverse()
+
   const [cardsClass, setCardsClass] = useState({
     clsName: "HistoryCards",
   })
@@ -15,7 +17,7 @@ useEffect(() => {
 
   return (
     <div class={cardsClass.clsName}>
-      {statements.reverse().map(({ date, id, question, percent }) => (
+      {reverseStatement.map(({ date, id, question, percent }) => (
         <div class="card" key={id}>
           <div class="card__side card__side--back">
             <div class="card__cover">
@@ -38,6 +40,6 @@ useEffect(() => {
           </div>
         </div>
       ))}
-      </div>
+    </div>
   )
 }

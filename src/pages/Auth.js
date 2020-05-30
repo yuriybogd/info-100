@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import "./Auth.scss"
 import { SingInForm } from "./../components/SingInForm"
 import { SingUpForm } from "./../components/SingUpForm"
@@ -20,9 +20,10 @@ export const Auth = () => {
   return (
     <div className={formProps.className}>
       <div className="auth-section">
+        <div className="svg-image"/>
         {formProps.toggleForm ? <SingInForm /> : <SingUpForm />}
         <button
-          className="toggle-btn"
+          className="btn-toggle"
           onClick={() =>
             setFormProps({
               toggleForm: !formProps.toggleForm,

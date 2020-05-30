@@ -6,7 +6,7 @@ import { FETCH_STATEMENTS, ADD_STATEMENT } from "./../types"
 import { FirebaseContext } from "./firebaseContext"
 
 const url = "https://info-100.firebaseio.com"
- 
+
 const dateTransform = () => {
   let date = new Date()
 
@@ -15,11 +15,11 @@ const dateTransform = () => {
     hours: date.getHours(),
     day: date.getDate(),
     month: date.getMonth(),
-    }
-    
-    if (mins < 10) {
-        mins = "0" + mins
-    }
+  }
+
+  if (mins < 10) {
+    mins = "0" + mins
+  }
 
   switch (month) {
     case 0:
@@ -80,16 +80,20 @@ export const FirebaseState = ({ children }) => {
   const fetchStatements = async () => {
     showLoader()
 
-    const response = await Axios.get(`${url}/statements.json`)
+    try {
+      const response = await Axios.get(`${url}/statements.json`)
 
-    const payload = Object.keys(response.data).map((key) => {
-      return {
-        ...response.data[key],
-        id: key,
-      }
-    })
+      const payload = Object.keys(response.data).map((key) => {
+        return {
+          ...response.data[key],
+          id: key,
+        }
+      })
 
-    dispatch({ type: FETCH_STATEMENTS, payload })
+      dispatch({ type: FETCH_STATEMENTS, payload })
+    } catch (e) {
+      console.error(e)
+    }
   }
 
   const addStatement = async (question, percent) => {

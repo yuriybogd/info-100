@@ -1,19 +1,12 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Formik } from "formik"
 import * as yup from "yup"
 import { Form, Button } from "react-bootstrap"
 import "./SingInForm.scss"
-import Axios from "axios"
-
-// from Firebase
-// const singUpUrl =
-//   "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key="
-const singInUrl =
-  "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key="
-const APIKey = "AIzaSyBFk9wJ3MK9GJrHetTKNyRvJ_e1fYnV0hs"
+import { AuthContext } from "./../context/authentification/authContext"
 
 export const SingInForm = () => {
-  
+  const {authentication} = useContext(AuthContext)
 
   const validationSchema = yup.object({
     email: yup
@@ -26,19 +19,9 @@ export const SingInForm = () => {
       .required("Поле обязательно к заполнению"),
   })
 
-  const singUpHandle = async (values) => {
-    const authData = {
-      email: values.email,
-      password: values.password,
-      returnSecureToken: true,
-    }
-
-    try {
-      const response = await Axios.post(`${singInUrl} + ${APIKey}`, authData)
-      console.log(response.data)
-    } catch (e) {
-      console.error(e)
-    }
+  const singInHandle = (values) => {
+      authentication(values.email, values.password, true)
+      .catch((e) => console.error(e))
   }
 
   return (
@@ -48,7 +31,7 @@ export const SingInForm = () => {
         password: "",
       }}
       validationSchema={validationSchema}
-      onSubmit={singUpHandle}
+      onSubmit={singInHandle}
     >
       {({
         handleSubmit,
@@ -62,7 +45,7 @@ export const SingInForm = () => {
       }) => (
         <Form noValidate onSubmit={handleSubmit} className="SingInForm">
           <Form.Group controlId="email">
-            <Form.Label>Email адрес</Form.Label>
+            <Form.Label>Почта</Form.Label>
             <Form.Control
               type="text"
               name="email"
@@ -91,7 +74,9 @@ export const SingInForm = () => {
             </Form.Control.Feedback>
           </Form.Group>
 
-          <Button type="submit">Войти</Button>
+          <Button type="submit" className="btn-singIn">
+            Войти
+          </Button>
         </Form>
       )}
     </Formik>

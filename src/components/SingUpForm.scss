@@ -1,9 +1,11 @@
 @import "../fonts/fonts.scss";
+@import "../fonts/fontawesome-free-5.13.0-web/scss/solid.scss";
+@import "../stylesheets/gradientBackgrounds.scss";
 
 // Variables
+$label-color: #7b72d8;
 
-// Mixin
-
+// Mixins
 @mixin bg-radius-shadow {
   border-radius: 10px 10px 10px 10px;
   -webkit-box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
@@ -11,15 +13,57 @@
   box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
 }
 
+@mixin btnSingUpStyle {
+  @include kimobyGradient;
+  color: #2c2c2c;
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 1.5rem;
+  border: 0;
+  transition: all 0.5s;
+  border-radius: 10px;
+  width: auto;
+  position: relative;
+  min-width: 200px;
+
+  &::after {
+    content: fa-content($fa-var-user-plus);
+    font-family: "Font Awesome 5 Free";
+    font-weight: 800;
+    position: absolute;
+    left: 80%;
+    top: 54%;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover {
+    @include kimobyGradient;
+    opacity: .8;
+    transition: all 0.5s;
+    border-radius: 10px;
+    box-shadow: 0px 6px 15px #0000ff61;
+    padding: 1.5rem 3rem 1.5rem 1.5rem;
+    color: #ffffff;
+    &::after {
+      opacity: 1;
+      transition: all 0.5s;
+      color: #ffffff;
+    }
+  }
+}
+
 .SingUpForm {
   display: flex;
   flex-direction: column;
   min-width: 10rem;
-  width: 30rem;
-  padding: 1rem;
 
-  .form-label {
+
+   .form-label {
     @include Roboto-Italic;
+    color: $label-color;
     font-size: 1rem;
     margin-left: 0.5rem;
   }
@@ -36,11 +80,10 @@
     margin-left: 2rem;
   }
 
-  .btn {
+  .btn-singUp {
     @include Roboto-Medium;
-    letter-spacing: 0.1rem;
-    padding: 0.5rem;
-    width: 12rem;
-    border-radius: 5px;
+    @include btnSingUpStyle;
+    height: 5rem;
+    width: 100%;
   }
 }

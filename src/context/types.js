@@ -1,3 +1,5 @@
 export const ADD_STATEMENT = "ADD_STATEMENT"
 export const SHOW_LOADER = "SHOW_LOADER"
 export const FETCH_STATEMENTS = "FETCH_STATEMENTS"
+export const AUTH_SUCCESS = "AUTH_SUCCESS"
+export const AUTH_LOGOUT = "AUTH_LOGOUT"

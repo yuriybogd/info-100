@@ -5,30 +5,36 @@ import { Navigation } from "./components/Navigation"
 import { Home } from "./pages/Home"
 import { Search } from "./pages/Search"
 import { scaleRotate as Menu } from "react-burger-menu"
-import { Administrator } from './pages/Administrator';
+import { Administrator } from "./pages/Administrator"
 import { FirebaseState } from "./context/firebase/FirebaseState"
-import { Auth } from './pages/Auth';
+import { Auth } from "./pages/Auth"
+import { AuthState } from "./context/authentification/AuthState"
 
 function App() {
   return (
     <BrowserRouter>
-      <FirebaseState>
-        <div id="App">
-          <div id="outer-container">
-            <Menu pageWrapId={"page-wrap"} outerContainerId={"outer-container"}>
-              <Navigation />
-            </Menu>
-            <main id="page-wrap">
-              <Switch>
-                <Route path="/" exact component={Home} />
-                <Route path="/search" component={Search} />
-                <Route path="/admin" component={Administrator} />
-                <Route path="/auth" component={Auth} />
-              </Switch>
-            </main>
+      <AuthState>
+        <FirebaseState>
+          <div id="App">
+            <div id="outer-container">
+              <Menu
+                pageWrapId={"page-wrap"}
+                outerContainerId={"outer-container"}
+              >
+                <Navigation />
+              </Menu>
+              <main id="page-wrap">
+                <Switch>
+                  <Route path="/" exact component={Home} />
+                  <Route path="/search" component={Search} />
+                  <Route path="/admin" component={Administrator} />
+                  <Route path="/auth" component={Auth} />
+                </Switch>
+              </main>
+            </div>
           </div>
-        </div>
-      </FirebaseState>
+        </FirebaseState>
+      </AuthState>
     </BrowserRouter>
   )
 }
