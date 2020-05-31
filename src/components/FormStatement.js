@@ -42,7 +42,6 @@ export const FormStatement = () => {
   }
 
   return (
-    <div className="container-md">
       <Form className="FormStatement bounce-in-left" onSubmit={submitHandle}>
         <h5 className="input-text">Введите инфу для проверки</h5>
 
@@ -64,6 +63,5 @@ export const FormStatement = () => {
           <ResultMsg msg={"Вот это результат!"} />
         ) : null}
       </Form>
-    </div>
   )
 }

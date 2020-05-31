@@ -52,6 +52,35 @@
   }
 }
 
+//  Mixins
+@mixin respond($breakpoint) {
+  @if $breakpoint == mobile-portrait {
+    @media (max-width: 320px) {
+      @content;
+    }
+  }
+  @if $breakpoint == mobile-landscape {
+    @media (max-width: 480px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet-portrait {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet-landscape {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+  @if $breakpoint == desktop {
+    @media (min-width: 990px) {
+      @content;
+    }
+  }
+}
+
 .Auth {
   @include bounce-in-left;
   @include bounce-in-right;
@@ -75,6 +104,11 @@
     flex-direction: column;
     padding: 1rem;
 
+     // Responsive
+    @include respond(mobile-portrait) {
+      height: 80%;
+    }
+
     .svg-image {
       @include SVGBuisnessDrinkingParty;
       background-size: cover;
@@ -89,6 +123,12 @@
       width: 100%;
       margin: 1rem auto 0 auto;
       outline-style: none;
+
+       // Responsive
+    @include respond(mobile-portrait) {
+      font-size: 1.25rem;
+      height: 13%;
+    }
     }
   }
 }

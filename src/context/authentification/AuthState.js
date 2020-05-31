@@ -89,6 +89,8 @@ export const AuthState = ({ children }) => {
       value={{
         authentication,
         autoLogin,
+        autoLogout,
+        logout,
         token: state.token,
       }}
     >

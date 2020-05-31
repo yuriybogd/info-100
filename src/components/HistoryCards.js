@@ -2,18 +2,17 @@ import React, { useEffect, useState } from "react"
 import "./HistoryCards.scss"
 
 export const HistoryCards = ({ statements }) => {
-const reverseStatement = statements.reverse()
+  const reverseStatement = statements.reverse()
 
   const [cardsClass, setCardsClass] = useState({
     clsName: "HistoryCards",
   })
 
-useEffect(() => {
-  setCardsClass({
-    clsName: "HistoryCards bounce-in-left",
-  })
- 
-}, [])
+  useEffect(() => {
+    setCardsClass({
+      clsName: "HistoryCards bounce-in-left",
+    })
+  }, [])
 
   return (
     <div class={cardsClass.clsName}>

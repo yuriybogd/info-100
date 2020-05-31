@@ -3,10 +3,14 @@ import ReactDOM from "react-dom"
 import "./index.scss"
 import App from "./App"
 import * as serviceWorker from "./serviceWorker"
+import { AuthState } from './context/authentification/AuthState';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AuthState>
+      <App />
+    </AuthState>
   </React.StrictMode>,
   document.getElementById("root")
 )

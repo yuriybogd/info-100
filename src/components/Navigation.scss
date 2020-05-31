@@ -1,25 +1,76 @@
 @import "../fonts/fonts.scss";
 
+//  Mixins
+@mixin respond($breakpoint) {
+  @if $breakpoint == mobile-portrait {
+    @media (max-width: 320px) {
+      @content;
+    }
+  }
+  @if $breakpoint == mobile-landscape {
+    @media (max-width: 480px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet-portrait {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet-landscape {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+  @if $breakpoint == desktop {
+    @media (min-width: 990px) {
+      @content;
+    }
+  }
+}
+
 .Navigation {
   width: 100%;
   display: flex;
   flex-direction: column;
   padding: 3rem 1rem;
+
+  // Responsive
+  @include respond(mobile-portrait) {
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+  }
+
   a {
     display: flex;
     align-items: center;
     justify-content: space-between;
     text-decoration: none;
-    
+
+    // Responsive
+    @include respond(mobile-portrait) {
+      display: flex;
+      justify-content: end;
+      opacity: 1;
+    }
+
     .font-icon {
       font-size: 1.25rem;
+
+      // Responsive
+      @include respond(mobile-portrait) {
+        font-size: 1rem;
+        margin-right: 1rem;
+      }
     }
 
     .link-text {
       @include Roboto-Regular;
       display: block;
       font-size: 1.5rem;
-      
     }
   }
 }
