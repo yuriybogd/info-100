@@ -1,6 +1,6 @@
 @import "../fonts/fonts.scss";
-@import "../stylesheets/svgBackgrounds.scss";
 @import "../stylesheets/animations.scss";
+@import "../stylesheets/gradientBackgrounds.scss";
 
 // Color
 $color-primary-light: #ca3782;
@@ -75,19 +75,11 @@ $color-white: #fff;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 1em 1em;
-  padding: 4rem;
-  height: 100%;
-  position: relative;
 
   // Responsive
   @include respond(mobile-portrait) {
     justify-content: center;
     display: flex;
-    width: auto;
-    justify-content: center;
-    margin-top: 5rem;
-    padding: 0;
   }
   @include respond(mobile-landscape) {
     display: flex;
@@ -118,20 +110,14 @@ $color-white: #fff;
 .card {
   flex: initial;
   position: relative;
-  height: 40rem;
-  width: 42rem;
   -moz-perspective: 200rem;
   perspective: 200rem;
-  margin: 2rem;
   background-color: rgba(255, 255, 255, 0);
-  border: none;
 
   // Responsive
   @include respond(mobile-portrait) {
     display: flex;
     justify-content: center;
-    margin: 1rem auto;
-    padding: 0;
   }
   @include respond(mobile-landscape) {
     @include border-radius();
@@ -154,12 +140,13 @@ $color-white: #fff;
     justify-content: center;
     width: 35rem;
     height: 40rem;
+    margin: 3rem 2rem;
   }
   @include respond(desktop) {
     @include border-radius();
     display: flex;
     justify-content: center;
-    margin: 2rem 2rem;
+    margin: 3rem 2rem;
     width: 38rem;
     height: 29rem;
   }
@@ -204,7 +191,7 @@ $color-white: #fff;
     }
 
     &--front {
-      @include SVGVanishingStripes;
+      @include Amin;
     }
 
     &--back {
@@ -253,7 +240,7 @@ $color-white: #fff;
 
   // Back side of the card
   &__cover {
-    @include SVGVanishingStripes;
+    @include Amin;
     position: relative;
     background-size: cover;
     height: 14rem;
@@ -354,7 +341,6 @@ $color-white: #fff;
   // Responsive
   @media only screen and (max-width: 320px), only screen and (hover: none) {
     @include border-radius();
-    @include box-shadow();
     height: auto;
     background-color: $color-white;
 

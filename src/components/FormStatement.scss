@@ -47,8 +47,7 @@
   flex-direction: column;
   margin: 20vh auto;
   max-width: 800px;
-  min-width: 320px;
-  height: 100%;
+  min-width: 300px;
   overflow: hidden;
   width: 60vw;
   min-height: 500px;
@@ -57,8 +56,10 @@
    // Responsive
     @include respond(mobile-portrait) {
       height: 60%;
-      overflow: hidden;
     }
+     @include respond(mobile-landscape) {
+      width: 80%;
+  }
   
 
   .input-text {
@@ -71,8 +72,9 @@
 
     // Responsive
     @include respond(mobile-portrait) {
-     font-size: 1.15rem;
+     font-size: 1.25rem;
     }
+
   }
   .form-control {
     @include Roboto-Light;
@@ -80,6 +82,11 @@
     margin: 0 auto;
     width: 90%;
     border-radius: 10px;
+
+      // Responsive
+    @include respond(mobile-portrait) {
+     font-size: .9rem;
+    }
   }
 
   button {
@@ -96,6 +103,12 @@
     transform: translateY(-50%);
     box-shadow: 0 10px 20px -5px #81939c49;
     overflow: hidden;
+
+    // Responsive
+    @include respond(mobile-portrait) {
+     width: 12rem;
+     padding: 2rem;
+    }
   }
 
   button:before,
@@ -114,6 +127,7 @@
     background-size: cover;
     transition: 0.3s ease transform;
     z-index: 1;
+    
   }
 
   button:after {
@@ -143,11 +157,16 @@
     text-align: center;
     padding: 25px 0;
     transition: 0.3s ease all;
+
+      // Responsive
+    @include respond(mobile-portrait) {
+    font-size: 1.75rem;
+    padding: 1.2rem;
+    }
   }
 
   button div:before {
     content: "ЧЕКНИ";
-
     letter-spacing: 0;
     opacity: 1;
     transform: scale(1);
@@ -155,7 +174,6 @@
 
   button div:after {
     content: "ИНФУ";
-
     letter-spacing: -10px;
     transform: scale(0);
     opacity: 0;
@@ -187,5 +205,10 @@
     font-size: 1.25rem;
     padding: 0;
     margin-bottom: 1.75rem;
+
+      // Responsive
+    @include respond(mobile-portrait) {
+     font-size: 1rem;
+    }
   }
 }

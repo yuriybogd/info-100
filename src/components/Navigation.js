@@ -62,7 +62,7 @@ export const Navigation = () => {
         <span className="link-text">Домой</span>
       </NavLink>
 
-      <NavLink id="search" className="bm-item" to="/search">
+      <NavLink id="history" className="bm-item" to="/history">
         <div className="font-icon">
           <FontAwesomeIcon icon={faHistory} />
         </div>

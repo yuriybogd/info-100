@@ -19,8 +19,6 @@ export const AuthState = ({ children }) => {
       returnSecureToken: true,
     }
 
-    console.log(authData)
-
     //url from Firebase
     const APIKey = "AIzaSyBFk9wJ3MK9GJrHetTKNyRvJ_e1fYnV0hs"
     let url =

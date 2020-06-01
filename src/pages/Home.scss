@@ -2,7 +2,6 @@
   height: 100vh;
   overflow-y: hidden;
   text-align: center;
-  overflow: auto;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -10,4 +9,5 @@
   backface-visibility: hidden;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }

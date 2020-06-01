@@ -3,7 +3,7 @@ import "./App.scss"
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom"
 import { Navigation } from "./components/Navigation"
 import { Home } from "./pages/Home"
-import { Search } from "./pages/Search"
+import { History } from "./pages/History"
 import { scaleRotate as Menu } from "react-burger-menu"
 import { Administrator } from "./pages/Administrator"
 import { FirebaseState } from "./context/firebase/FirebaseState"
@@ -24,7 +24,7 @@ function App() {
     if (userToken) {
       return (
         <>
-          <Route path="/search" component={Search} />
+          <Route path="/history" component={History} />
           <Route path="/admin" component={Administrator} />
           <Route path="/logout" component={Logout} />
           <Route path="/" exact component={Home} />
@@ -34,7 +34,7 @@ function App() {
     } else {
       return (
         <>
-          <Route path="/search" component={Search} />
+          <Route path="/history" component={History} />
           <Route path="/auth" component={Auth} />
           <Route path="/" exact component={Home} />
           <Redirect to="/" />
